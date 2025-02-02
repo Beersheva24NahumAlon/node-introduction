@@ -1,6 +1,4 @@
-import { fileURLToPath } from "node:url";
-import { logger } from "./logger.mjs";
-import path from "node:path";
+import logger from "./logger.mjs";
 
-logger.log(path.parse(fileURLToPath(import.meta.url)));
-logger.log(path.parse(process.argv[1]));
+logger.log("info", "Information message");
+logger.log("debug", "Debug message");
