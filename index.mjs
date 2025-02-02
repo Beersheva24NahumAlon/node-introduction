@@ -1,4 +1,6 @@
 import logger from "./logger.mjs";
+import fs from "node:fs";
 
-logger.log("info", "Information message");
-logger.log("debug", "Debug message");
+const data = fs.readFileSync("./index.mjs");
+logger.info(data);
+fs.writeFileSync("./file.txt", ["some data1", "some data2"].join("\n"));
