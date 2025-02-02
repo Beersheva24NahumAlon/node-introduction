@@ -7,5 +7,4 @@ class Logger {
     }
 }
 
-const logger = new Logger();
-module.exports.logger = logger;
+export const logger = new Logger();
