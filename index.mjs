@@ -1,19 +1,16 @@
 import logger from "./logger.mjs";
-//import fs from "node:fs";
-import {readFile, writeFile} from "node:fs/promises";
+import LevelCounter from "./LevelCounter.mjs";
+import WordSearcher from "./WordSearcher.mjs";
 
-// const data = fs.readFile("./file.txt", "utf-16le",(err, data) => {
-//     if (err) {
-//         logger.error(err);
-//     } else {
-//         logger.info(data);
-//     }
-// });
+const levelCounter = new LevelCounter(logger);
+const wordSearcher = new WordSearcher(logger, ["Hello", "123"], "debug");
 
-// fs.writeFile("./file.txt", ["some data1", "some data2"].join("\n"), "utf-16le", () => logger.info("file saved successfully"));
+logger.log("info", "hello456");
+logger.log("info", "");
+logger.log("debug", "123");
+logger.log("debug", "hello");
+logger.log("debug", "Hello123");
+logger.log("debug", "123hello");
 
-(async () => {
-    const data = await readFile("./file.txt", "utf-16le");
-    logger.info(data)
-    writeFile("./file.txt", ["some data1", "some data2"].join("\n"), "utf-16le");
-})();
+levelCounter.printLevels();
+wordSearcher.printMessages();
